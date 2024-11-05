@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectdb from './configs/mongodb.js';
+import userRouter from './routes/userRoutes.js';
 
 
 // App config 
@@ -13,6 +14,7 @@ await connectdb()
 app.get('/',(req,res)=>{
     res.send('Hello from Express server')
 })
+app.use('/api/user',userRouter)
 
 // initalize  Middleware
 app.use(express.json())
