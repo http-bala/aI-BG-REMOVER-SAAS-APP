@@ -1,9 +1,6 @@
 import {Webhook} from 'svix'
-
 // Import your user model
-
-const userModel = require('../models/userModel.js') // Assuming userModel is a Mongoose model for user schema
-
+import userModel from '../models/userModel.js'
 // API Controller  Function to Manage Clerk User with database 
 // http://localhost:4000/api/user/webhooks
 
