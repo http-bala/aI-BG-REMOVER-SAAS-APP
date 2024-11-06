@@ -16,6 +16,7 @@ app.get('/',(req,res)=>{
 })
 app.use('/api/user',userRouter)
 
+
 // initalize  Middleware
 app.use(express.json())
 app.use(cors())

@@ -17,17 +17,18 @@ const clerkWebhooks = async (req,res)=>{
 
         const {data,type} = req.body
         switch (type){
-            case "user.created":{
+            case "user.created": {
                 // Add user to your database
                 const userdata = {
                     clerkId: data.id,
                     email: data.email_addresses[0].email_address,
                     firstName: data.first_name,
                     lastName: data.last_name,
-                    photo: data.image_url
+                    photo: data.image_url  
                 }
                 await userModel.create(userdata)
                 res.json({})
+                
                 break;
             }
             case "user.updated":{
@@ -39,13 +40,15 @@ const clerkWebhooks = async (req,res)=>{
                     photo: data.image_url
                 }
                 await userModel.findOneAndUpdated({clerkId:data.id},userdata)
-                res.json({})
+                res.json({}) 
+
                 break;
             }
             case "user.deleted":{
                 // Add user to your database
                 await userModel.findOneAndDelete({clerkId:data.id},userdata)
                 res.json({})
+
                 break;
             }
         }
